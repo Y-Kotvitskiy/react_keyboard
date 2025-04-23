@@ -1,6 +1,10 @@
 import React from 'react';
 
 export class App extends React.Component<{}, { key: string | null }> {
+  state = {
+    key: null,
+  };
+
   handleKeyUp = (event: KeyboardEvent) => {
     this.setState({ key: event.key });
   };
@@ -12,10 +16,6 @@ export class App extends React.Component<{}, { key: string | null }> {
   componentWillUnmount(): void {
     document.removeEventListener('keyup', this.handleKeyUp);
   }
-
-  state = {
-    key: null,
-  };
 
   render() {
     return (
